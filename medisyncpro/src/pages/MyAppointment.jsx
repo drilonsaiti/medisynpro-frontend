@@ -1,7 +1,7 @@
 import React from 'react';
-import AppointmentPatientTable from "../features/Appointment/AppontmentPatientTable.jsx";
+import AppointmentPatientTable from "../features/appointment/AppontmentPatientTable.jsx";
 import Row from "../ui/Row.jsx";
-import {useMyAppointment} from "../features/Appointment/useAppointments.js";
+import {useMyAppointment} from "../features/appointment/useAppointments.js";
 import Spinner from "../ui/Spinner.jsx";
 
 const MyAppointment = () => {

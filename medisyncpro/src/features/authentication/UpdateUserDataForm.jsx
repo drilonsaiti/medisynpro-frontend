@@ -8,7 +8,7 @@ import Spinner from "../../ui/Spinner.jsx";
 import {useGetRole} from "../../services/useGetRole.js";
 import Select from "react-select";
 import makeAnimated from 'react-select/animated';
-import {useSpecializations} from "../Specializations/useSpecializations.js";
+import {useSpecializations} from "../specializations/useSpecializations.js";
 import {useState} from "react";
 
 const animatedComponents = makeAnimated();

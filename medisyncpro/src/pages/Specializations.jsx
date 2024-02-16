@@ -1,7 +1,7 @@
 import Row from "../ui/Row.jsx";
 import Heading from "../ui/Heading.jsx";
-import SpecializationsTable from "../features/Specializations/SpecializationsTable.jsx";
-import AddSpecializations from "../features/Specializations/AddSpecializations.jsx";
+import SpecializationsTable from "../features/specializations/SpecializationsTable.jsx";
+import AddSpecializations from "../features/specializations/AddSpecializations.jsx";
 
 const Specializations = () => {
     return (

@@ -1,8 +1,8 @@
 import Heading from "../ui/Heading.jsx";
 import Row from "../ui/Row.jsx";
-import AppointmentTable from "../features/Appointment/AppointmentTable.jsx";
-import AddAppointment from "../features/Appointment/AddAppointment.jsx";
-import AppointmentTableOperations from "../features/Appointment/AppointmentTableOperations.jsx";
+import AppointmentTable from "../features/appointment/AppointmentTable.jsx";
+import AddAppointment from "../features/appointment/AddAppointment.jsx";
+import AppointmentTableOperations from "../features/appointment/AppointmentTableOperations.jsx";
 import SearchInput from "../ui/SearchInput.jsx";
 import React, {useState} from "react";
 import {useSearchParams} from "react-router-dom";

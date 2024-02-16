@@ -1,7 +1,7 @@
 import axios from "axios";
 import Cookies from "universal-cookie";
 import {useGetRole} from "../services/useGetRole.js";
-import {useFindByEmailOrContactNumber} from "../features/Patient/useFindByEmailOrContactNumber.js";
+import {useFindByEmailOrContactNumber} from "../features/patient/useFindByEmailOrContactNumber.js";
 
 export const BASE_URL = "https://medisyncpro-backend.onrender.com/api";
 

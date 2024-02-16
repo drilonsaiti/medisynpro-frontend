@@ -1,8 +1,8 @@
 import Row from "../ui/Row.jsx";
 import Heading from "../ui/Heading.jsx";
-import MedicalReportTable from "../features/MedicalReport/MedicalReportTable.jsx";
-import AddMedicalReport from "../features/MedicalReport/AddMedicalReport.jsx";
-import MedicalReportTableOperations from "../features/MedicalReport/MedicalReportTableOperations.jsx";
+import MedicalReportTable from "../features/medicalReport/MedicalReportTable.jsx";
+import AddMedicalReport from "../features/medicalReport/AddMedicalReport.jsx";
+import MedicalReportTableOperations from "../features/medicalReport/MedicalReportTableOperations.jsx";
 import SearchInput from "../ui/SearchInput.jsx";
 import React, {useState} from "react";
 import {useSearchParams} from "react-router-dom";

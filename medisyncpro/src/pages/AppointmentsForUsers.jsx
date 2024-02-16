@@ -1,5 +1,5 @@
 import React from 'react';
-import AppointmentUser from "../features/Appointment/AppointmentUser.jsx";
+import AppointmentUser from "../features/appointment/AppointmentUser.jsx";
 import Row from "../ui/Row.jsx";
 
 const AppointmentsForUsers = () => {

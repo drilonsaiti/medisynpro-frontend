@@ -1,8 +1,8 @@
 import React from 'react';
 import {useGetRole} from "../services/useGetRole.js";
-import PatientDetailsProfile from "../features/Patient/PatientDetailsProfile.jsx";
+import PatientDetailsProfile from "../features/patient/PatientDetailsProfile.jsx";
 import Spinner from "../ui/Spinner.jsx";
-import ClinicProfileDetails from "../features/Clinic/ClinicProfileDetails.jsx";
+import ClinicProfileDetails from "../features/clinic/ClinicProfileDetails.jsx";
 
 const Profile = () => {
     const {roles, isLoading: isLoadingRole} = useGetRole();

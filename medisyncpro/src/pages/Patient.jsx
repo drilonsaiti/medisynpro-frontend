@@ -1,7 +1,7 @@
 import Row from "../ui/Row.jsx";
 import Heading from "../ui/Heading.jsx";
-import PatientTable from "../features/Patient/PatientTable.jsx";
-import AddPatient from "../features/Patient/AddPatient.jsx";
+import PatientTable from "../features/patient/PatientTable.jsx";
+import AddPatient from "../features/patient/AddPatient.jsx";
 import React, {useState} from "react";
 import {useSearchParams} from "react-router-dom";
 import SearchInput from "../ui/SearchInput.jsx";

@@ -1,7 +1,7 @@
 import Row from "../ui/Row.jsx";
 import Heading from "../ui/Heading.jsx";
-import ReceptionistTable from "../features/Receptionist/ReceptionistTable.jsx";
-import AddReceptionist from "../features/Receptionist/AddReceptionist.jsx";
+import ReceptionistTable from "../features/receptionist/ReceptionistTable.jsx";
+import AddReceptionist from "../features/receptionist/AddReceptionist.jsx";
 
 const Receptionist = () => {
     return (

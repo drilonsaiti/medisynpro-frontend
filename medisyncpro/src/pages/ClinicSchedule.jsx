@@ -1,9 +1,9 @@
 import Row from "../ui/Row.jsx";
 import Heading from "../ui/Heading.jsx";
-import ClinicScheduleTable from "../features/ClinicSchedule/ClinicScheduleTable.jsx";
-import UpdateSettingsForm from "../features/Settings/UpdateSettingsForm.jsx";
-import GenerateSchedule from "../features/ClinicSchedule/GenerateSchedule.jsx";
-import ClinicScheduleTableOperations from "../features/ClinicSchedule/ClinicScheduleTableOperations.jsx";
+import ClinicScheduleTable from "../features/clinicSchedule/ClinicScheduleTable.jsx";
+import UpdateSettingsForm from "../features/settings/UpdateSettingsForm.jsx";
+import GenerateSchedule from "../features/clinicSchedule/GenerateSchedule.jsx";
+import ClinicScheduleTableOperations from "../features/clinicSchedule/ClinicScheduleTableOperations.jsx";
 
 const ClinicSchedule = () => {
     return (

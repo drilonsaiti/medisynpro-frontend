@@ -1,7 +1,7 @@
 import Row from "../ui/Row.jsx";
 import Heading from "../ui/Heading.jsx";
-import ClinicTable from "../features/Clinic/ClinicTable.jsx";
-import AddClinic from "../features/Clinic/AddClinic.jsx";
+import ClinicTable from "../features/clinic/ClinicTable.jsx";
+import AddClinic from "../features/clinic/AddClinic.jsx";
 
 const Clinic = () => {
     return (

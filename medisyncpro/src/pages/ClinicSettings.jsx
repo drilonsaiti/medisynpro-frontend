@@ -1,12 +1,12 @@
 import React from 'react';
 import Row from "../ui/Row.jsx";
-import UpdateSettingsForm from "../features/Settings/UpdateSettingsForm.jsx";
-import AccountDoctorSettings from "../features/Settings/AccountDoctorSettings.jsx";
-import AccountReceptionistSettings from "../features/Settings/AccountReceptionistSettings.jsx";
-import GenerateSchedule from "../features/ClinicSchedule/GenerateSchedule.jsx";
-import AccountSpecializationSettings from "../features/Settings/AccountSpecializationSettings.jsx";
-import CreateClinicForm from "../features/Clinic/CreateClinicForm.jsx";
-import {useClinicById, useClinicByIdAuth} from "../features/Clinic/useClinic.js";
+import UpdateSettingsForm from "../features/settings/UpdateSettingsForm.jsx";
+import AccountDoctorSettings from "../features/settings/AccountDoctorSettings.jsx";
+import AccountReceptionistSettings from "../features/settings/AccountReceptionistSettings.jsx";
+import GenerateSchedule from "../features/clinicSchedule/GenerateSchedule.jsx";
+import AccountSpecializationSettings from "../features/settings/AccountSpecializationSettings.jsx";
+import CreateClinicForm from "../features/clinic/CreateClinicForm.jsx";
+import {useClinicById, useClinicByIdAuth} from "../features/clinic/useClinic.js";
 import Spinner from "../ui/Spinner.jsx";
 
 const ClinicSettings = () => {
