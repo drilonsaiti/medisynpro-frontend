@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import HeaderMenu from "./HeaderMenu.jsx";
-import UserAvatar from "../features/Authentication/UserAvatar.jsx";
-import {useProfile} from "../features/Authentication/useUpdateUser.js";
+import UserAvatar from "../features/authentication/UserAvatar.jsx";
+import {useProfile} from "../features/authentication/useUpdateUser.js";
 
 
 const StyledHeader = styled.header`

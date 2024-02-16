@@ -2,7 +2,7 @@ import styled from "styled-components";
 import ButtonIcon from "./ButtonIcon.jsx";
 import {HiOutlineUser} from 'react-icons/hi2';
 import DarkModeToggle from "./DarkModeToggle.jsx";
-import Logout from "../features/Authentication/Logout.jsx";
+import Logout from "../features/authentication/Logout.jsx";
 
 
 const StyledHeaderMenu = styled.ul`
