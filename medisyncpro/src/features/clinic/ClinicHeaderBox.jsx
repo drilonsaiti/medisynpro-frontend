@@ -128,7 +128,7 @@ const ClinicHeaderBox = ({clinic}) => {
             <Container>
                 <HeaderProfile>
                     <Avatar>
-                        <AvatarImg src={clinic?.imageUrl !== "" ? clinic.imageUrl : "http://localhost:5173/default-user.jpg"}/>
+                        <AvatarImg src={clinic?.imageUrl !== "" ? clinic.imageUrl : "/default-user.jpg"}/>
                     </Avatar>
                     <Heading type="h1">{name}</Heading>
                     <Title>Clinic</Title>

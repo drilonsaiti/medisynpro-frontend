@@ -112,7 +112,7 @@ const ClinicAppointmentBox = ({doctors, forUsers}) => {
                                     onClick={() => navigate(`/doctors/${doctor.doctorId}`)}
                                     style={{alignSelf: "self-end", marginTop: "1rem"}}>view profile</Button>
                             <Avatar>
-                                <AvatarImg src="http://localhost:5173/michele.jpg"/>
+                                <AvatarImg src={doctor?.imageUrl !== "" ? doctor.imageUrl : "/default-user.jpg"}/>
                             </Avatar>
                             <Status/>
                             <FlexGroup>

@@ -231,7 +231,7 @@ const AppointmentUser = () => {
                         <ProfileCard key={clinic.clinicId}>
                             <Header>
                                 <Avatar>
-                                    <AvatarImg src="http://localhost:5173/logo.png"/>
+                                    <AvatarImg src={clinic?.imageUrl !== "" ? clinic.imageUrl : '/default-user.jpg'}/>
                                     <AvatarOverlay/>
                                     <AvatarOuterBorder/>
                                 </Avatar>

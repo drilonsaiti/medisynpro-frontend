@@ -233,7 +233,7 @@ const PatientAppointmentBox = ({patientId}) => {
 
                                     <Heading type="h3">{formatDateMonth(app.date)}</Heading>
                                     <Doctor>
-                                        <Avatar src="http://localhost:5173/default-user.jpg"/>
+                                        <Avatar src="/default-user.jpg"/>
                                         <Stacked>
                                             <Title>{app.doctorName}</Title>
                                             <span>{app.doctorSpecializations}</span>

@@ -8,8 +8,8 @@ Font.register({
     family: 'Arial, sans-serif',
 
     fonts: [
-        {src: 'http://localhost:5173/arial.ttf', fontWeight: 'normal'},
-        {src: 'http://localhost:5173/arial_bold.ttf', fontWeight: 'bold'},
+        {src: '/arial.ttf', fontWeight: 'normal'},
+        {src: '/arial_bold.ttf', fontWeight: 'bold'},
         // Add more font weights or styles as needed
     ],
 });
@@ -135,7 +135,7 @@ const PdfRender = ({data}) => {
             <Page size="A4" style={[styles.body, styles.container]}>
 
                 <View style={styles.header}>
-                    <Image style={styles.logo} src="http://localhost:5173/logo.png"/>
+                    <Image style={styles.logo} src="/logo.png"/>
                     <Text style={styles.title}>Medical Report #{data.reportId}</Text>
                 </View>
 
