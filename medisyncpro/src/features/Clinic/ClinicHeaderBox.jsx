@@ -2,7 +2,7 @@ import styled from "styled-components";
 import {HiAtSymbol} from "react-icons/hi2";
 import Heading from "../../ui/Heading.jsx";
 import {FaAtom, FaCalendarCheck, FaClipboardList, FaEnvelope, FaGraduationCap} from "react-icons/fa";
-import {FaHouseMedical} from "react-icons/fa6";
+import {FaHouseMedical, FaLocationDot, FaUserDoctor} from "react-icons/fa6";
 
 
 export const StyledBox = styled.div`
@@ -12,7 +12,7 @@ export const StyledBox = styled.div`
     width: 80%;
     overflow: hidden;
     margin: auto;
-    
+
 `
 
 const Container = styled.div`
@@ -96,9 +96,9 @@ const QuickActionsButton = styled.button`
 `
 
 const Title = styled.div`
-  font-size: 1.6rem;
-  font-weight: 600;
-  font-family: "Sono",sans-serif;
+    font-size: 1.6rem;
+    font-weight: 600;
+    font-family: "Sono",sans-serif;
 `;
 
 const Avatar = styled.div`
@@ -128,7 +128,7 @@ const ClinicHeaderBox = ({clinic}) => {
             <Container>
                 <HeaderProfile>
                     <Avatar>
-                        <AvatarImg src="http://localhost:5173/logo.png"/>
+                        <AvatarImg src={clinic?.imageUrl !== "" ? clinic.imageUrl : "http://localhost:5173/default-user.jpg"}/>
                     </Avatar>
                     <Heading type="h1">{name}</Heading>
                     <Title>Clinic</Title>
@@ -136,23 +136,25 @@ const ClinicHeaderBox = ({clinic}) => {
                 <ContactInfo>
                     <Heading type="h2">Info</Heading>
                     <ContactItem type="lg">
+                        <FaHouseMedical/>
+                        <p>{clinic?.clinicName}</p>
+                    </ContactItem>
+                    <ContactItem type="lg">
+                        <FaLocationDot />
+                        <p>{address}</p>
+                    </ContactItem>
+                    <ContactItem type="lg">
                         <FaAtom/>
 
                         <p>{specializations?.map(spec =>
                             (<span key={spec.specializationId}>{`${spec.specializationName},`}</span>))}
                         </p>
                     </ContactItem>
-                    <ContactItem type="lg">
-                        <FaGraduationCap/>
-                        <p>{address}</p>
-                    </ContactItem>
-                    <ContactItem type="lg">
-                        <FaHouseMedical/>
-                        <p>{clinic.clinicName}</p>
-                    </ContactItem>
+
+
 
                     <ContactItem type="lg">
-                        <FaClipboardList/>
+                        <FaUserDoctor />
                         <p>{doctors?.length ?? 0}</p>
                     </ContactItem>
                 </ContactInfo>
@@ -161,7 +163,7 @@ const ClinicHeaderBox = ({clinic}) => {
                     <Heading type="h2">Contact info</Heading>
                     <ContactItem>
                         <HiAtSymbol/>
-                        <p>test@test.com</p>
+                        <p>{clinic.email}</p>
                     </ContactItem>
                 </ContactInfo>
 
