@@ -6,7 +6,6 @@ import {useSignUp} from "./useSignUp.js";
 import {P} from "../../ui/Pagination.jsx";
 import {Link} from "react-router-dom";
 
-// Email regex: /\S+@\S+\.\S+/
 
 function SignupForm({type, register, reset, handleSubmit, errors, getValues}) {
 
