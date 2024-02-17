@@ -4,7 +4,7 @@ import PatientDetailsProfile from "../features/patient/PatientDetailsProfile.jsx
 import Spinner from "../ui/Spinner.jsx";
 import ClinicProfileDetails from "../features/clinic/ClinicProfileDetails.jsx";
 import ReceptionistDetailsProfile from "../features/receptionist/ReceptionistDetailsProfile.jsx";
-import DoctorProfileDetails from "../features/Doctor/doctorProfileDetails.jsx";
+import DoctorProfileDetails from "../features/doctor/DoctorProfileDetails.jsx";
 
 const Profile = () => {
     const {roles, isLoading: isLoadingRole} = useGetRole();
