@@ -1,6 +1,6 @@
 import {useQuery, useQueryClient} from "@tanstack/react-query";
 import {useSearchParams} from "react-router-dom";
-import {getClinicServices} from "../../services/apiClinicServices.js";
+import {getClinicServiceForClinic, getClinicServices} from "../../services/apiClinicServices.js";
 
 export function useClinicServices() {
     const queryClient = useQueryClient();
