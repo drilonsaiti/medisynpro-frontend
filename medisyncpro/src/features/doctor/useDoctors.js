@@ -1,5 +1,11 @@
 import {useQuery, useQueryClient} from "@tanstack/react-query";
-import {getDoctorById, getDoctors, getDoctorsByClinicId, getDoctorSearch} from "../../services/apiDoctors.js";
+import {
+    getDoctorById,
+    getDoctorForProfile,
+    getDoctors,
+    getDoctorsByClinicId,
+    getDoctorSearch
+} from "../../services/apiDoctors.js";
 import {useParams, useSearchParams} from "react-router-dom";
 
 
@@ -95,4 +101,13 @@ export function useDoctorSearch() {
     })
 
     return {doctorsOptions, isLoading};
+}
+
+export function useDoctorForProfile() {
+    const {data: doctor, isLoading} = useQuery({
+        queryFn: getDoctorForProfile,
+        queryKey: ["profileDoctor"]
+    })
+
+    return {doctor, isLoading};
 }

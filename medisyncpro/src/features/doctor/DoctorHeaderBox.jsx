@@ -63,7 +63,7 @@ const QuickActions = styled.div`
     flex-direction: column;
     align-items: start;
     background-color: var(--color-grey-800);
-    color: var(--color-grey-0);
+    color: white;
     border-radius: 20px;
     padding: 1rem 2rem;
 `
@@ -94,13 +94,13 @@ const QuickActionsButton = styled.button`
 `
 
 const Title = styled.div`
-  font-size: 1.6rem;
-  font-weight: 600;
-  font-family: "Sono",sans-serif;
+    font-size: 1.6rem;
+    font-weight: 600;
+    font-family: "Sono",sans-serif;
 `;
 
 const DoctorHeaderBox = ({doctor}) => {
-    const {doctorId, doctorName: name, specialization, education, clinic, medicalReports} = doctor;
+    const {doctorId, doctorName: name, specialization, education, clinic, medicalReports,email} = doctor;
 
     return (
         <StyledBox>
@@ -114,15 +114,15 @@ const DoctorHeaderBox = ({doctor}) => {
                     <ContactItem type="lg">
                         <FaAtom/>
 
-                        <p>{specialization.specializationName}</p>
+                        <p>{specialization?.specializationName ?? ''}</p>
                     </ContactItem>
                     <ContactItem type="lg">
                         <FaGraduationCap/>
-                        <p>{education}</p>
+                        <p>{education ?? ''}</p>
                     </ContactItem>
                     <ContactItem type="lg">
                         <FaHouseMedical/>
-                        <p>{clinic !== null ? clinic.clinicName : "Unemployed"}</p>
+                        <p>{clinic !== null ? clinic?.clinicName : "Unemployed"}</p>
                     </ContactItem>
 
                     <ContactItem type="lg">
@@ -135,7 +135,7 @@ const DoctorHeaderBox = ({doctor}) => {
                     <Heading type="h2">Contact info</Heading>
                     <ContactItem>
                         <HiAtSymbol/>
-                        <p>test@test.com</p>
+                        <p>{email}</p>
                     </ContactItem>
                 </ContactInfo>
 
