@@ -39,3 +39,14 @@ export function useClinicServices() {
     return {isLoading, clinicServices, totalElements}
 }
 
+export function useClinicServiceForClinic() {
+
+    const {isLoading, error, data: servicesClinic} = useQuery({
+        queryKey: ['clinicServicesForClinic'],
+        queryFn: getClinicServiceForClinic
+    })
+
+    return {isLoading, error, servicesClinic};
+}
+
+

@@ -10,6 +10,16 @@ export async function getSettings() {
     }
 }
 
+export async function getSettingsDto() {
+    try {
+
+        const response = await apiRequest('GET', 'settings/getSettings')
+        return response.data;
+    } catch (e) {
+        throw new Error(e);
+    }
+}
+
 export async function updateSetting(newSetting) {
 
     try {

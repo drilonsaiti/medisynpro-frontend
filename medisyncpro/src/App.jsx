@@ -44,11 +44,6 @@ const queryClient = new QueryClient({
 function App() {
 
     return (
-        <HelmetProvider>
-            <Helmet>
-                <meta httpEquiv="Content-Security-Policy" content="script-src 'self';" />
-                <meta httpEquiv="X-XSS-Protection" content="1; mode=block" />
-            </Helmet>
             <DarkModeProvider>
                 <QueryClientProvider client={queryClient}>
 
@@ -158,7 +153,6 @@ function App() {
                              }}/>
                 </QueryClientProvider>
             </DarkModeProvider>
-        </HelmetProvider>
     )
 }
 

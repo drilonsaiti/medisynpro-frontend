@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import FormRow from '../../ui/FormRow';
 import Input from '../../ui/Input';
-import {useSettings} from "./useSettings.js";
+import {useSettings, useSettingsDto} from "./useSettings.js";
 import Form from "../../ui/Form";
 import Spinner from "../../ui/Spinner.jsx";
 import {useUpdateSettings} from "./useUpdateSettings.js";
@@ -28,7 +28,7 @@ const Card = styled.div`
 `
 
 function UpdateSettingsForm() {
-    const {isLoading, settings: settingsData} = useSettings();
+    const {isLoading, settings: settingsData} = useSettingsDto();
     const {isUpdating, updatedSettings} = useUpdateSettings();
     const {isLoading:isLoadingDoctors, doctors, totalElements} = useDoctorsByClinicId();
     const [selectedMorningDoctors, setSelectedMorningDoctors] = useState(null);
@@ -39,6 +39,7 @@ function UpdateSettingsForm() {
     const toggleAccordion = () => {
         setIsOpen(!isOpen);
     };
+    console.log(settingsData);
     useEffect(() => {
         setSelectedMorningDoctors(settingsData?.morningDoctors?.map(doctor => ({
             value: doctor.doctorId,
@@ -80,7 +81,6 @@ function UpdateSettingsForm() {
             ...value
         };
 
-        console.log(updatedSettingsData)
         updatedSettings(updatedSettingsData);
     }
 
@@ -117,7 +117,7 @@ function UpdateSettingsForm() {
         // Update the selected morning doctors
         setSelectedMorningDoctors(selectedOptions);
 
-        handleUpdate(null, 'morningDoctors', selectedOptions)
+        handleUpdate(null, 'morningDoctors', selectedOptions,filteredAfternoonDoctors)
     };
 
     const handleAfternoonDoctorChange = (selectedOptions, filter) => {
@@ -131,7 +131,7 @@ function UpdateSettingsForm() {
         // Update the selected afternoon doctors
         setSelectedAfternoonDoctors(selectedOptions);
 
-        handleUpdate(null, 'afternoonDoctors', selectedOptions)
+        handleUpdate(null, 'afternoonDoctors', selectedOptions,filteredMorningDoctors)
     };
     return (
         <>

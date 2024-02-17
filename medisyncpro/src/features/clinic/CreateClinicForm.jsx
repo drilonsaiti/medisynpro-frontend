@@ -15,9 +15,10 @@ import {useEffect, useState} from "react";
 const animatedComponents = makeAnimated();
 
 const CreateClinicForm = ({clinicToEdit = {}, onCloseModal,forSettings,refreshClinic}) => {
-    console.log(clinicToEdit);
+
     const {clinicId, ...editValues} = clinicToEdit;
     const {isLoading, specializations} = useSpecializations();
+    const {isLoading:isLoadingClinicServices,servicesClinic} = useClinicServiceForClinic();
     const {isLoading: isLoadingServices, clinicServices} = useClinicServicesById(clinicId);
     const isEditSession = Boolean(clinicId);
     const {register, handleSubmit, reset, getValues, setValue, formState} = useForm({
@@ -40,23 +41,24 @@ const CreateClinicForm = ({clinicToEdit = {}, onCloseModal,forSettings,refreshCl
             label: service.services
         };
     });
-    const optionsServices = clinicServices
+    const optionsServices = servicesClinic
         ?.sort((a, b) => a.serviceId - b.serviceId)
         ?.reduce((groupedOptions, service) => {
-            const label = specializations?.find(spec => spec.specializationId === service.specializations.specializationId).specializationName;
+            const label = specializations?.find(spec => spec.specializationId === service.specializations?.specializationId)?.specializationName;
+
 
             const existingGroup = groupedOptions?.find(group => group.label === label);
 
             if (existingGroup) {
                 existingGroup.options.push({
-                    value: service.serviceName,
+                    value: service.serviceId,
                     label: service.serviceName
                 });
             } else {
                 groupedOptions.push({
                     label: label,
                     options: [{
-                        value: service.serviceName,
+                        value: service.serviceId,
                         label: service.serviceName
                     }]
                 });
@@ -70,23 +72,23 @@ const CreateClinicForm = ({clinicToEdit = {}, onCloseModal,forSettings,refreshCl
     const isWorking = isCreating || isEditing || isLoading || isLoadingServices || !selectedService;
 
     useEffect(() => {
-        const updatedSelectedOptionsServices = clinicServices
+        const updatedSelectedOptionsServices = servicesClinic
             ?.sort((a, b) => a.serviceId - b.serviceId)
             ?.reduce((groupedOptions, service) => {
-                const label = specializations?.find(spec => spec.specializationId === service.specializations.specializationId).specializationName;
-                if (selectedSpecializations?.find(spec => spec.value === service.specializations.specializationId)) {
+                const label = specializations?.find(spec => spec.specializationId === service?.specializations?.specializationId)?.specializationName;
+                if (selectedSpecializations?.find(spec => spec.value === service?.specializations?.specializationId)) {
                     const existingGroup = groupedOptions.find(group => group.label === label);
 
                     if (existingGroup) {
                         existingGroup.options.push({
-                            value: service.serviceName,
+                            value: service.serviceId,
                             label: service.serviceName
                         });
                     } else {
                         groupedOptions.push({
                             label: label,
                             options: [{
-                                value: service.serviceName,
+                                value: service.serviceId,
                                 label: service.serviceName
                             }]
                         });
@@ -102,9 +104,7 @@ const CreateClinicForm = ({clinicToEdit = {}, onCloseModal,forSettings,refreshCl
         setOptionsService(updatedSelectedOptionsServices);
     }, [selectedSpecializations]);
 
-    if (isWorking) return <Spinner/>
-
-
+    if (isWorking || isLoadingServices) return <Spinner/>
     function onSubmit(data) {
         const selectedSpecializations = getValues("specializations")?.sort((a, b) => a.specializationId - b.specializationId)?.map(spec => {
             return {
@@ -129,8 +129,16 @@ const CreateClinicForm = ({clinicToEdit = {}, onCloseModal,forSettings,refreshCl
                 newData: {
                     ...data,
                     clinicId,
-                    specializations: selectedSpecializations,
-                    serviceDto: selectedServices
+                    specializations: getValues("specializations"),
+                    serviceDto: getValues("serviceDto").length >0 ? getValues("serviceDto").map(s => ({
+                            serviceId: s.value,
+                            serviceName:s.label
+                        })
+                    ) : selectedService.map(s => ({
+                            serviceId: s.value,
+                            serviceName:s.label
+                        })
+                    )
                 }, id: clinicId
             }, {
                 onSuccess: () => {
@@ -144,8 +152,16 @@ const CreateClinicForm = ({clinicToEdit = {}, onCloseModal,forSettings,refreshCl
             })
         } else createClinic({
             ...data,
-            specializations: selectedSpecializations,
-            serviceDto: selectedServices
+            specializations: getValues("specializations"),
+            serviceDto: getValues("serviceDto").length >0 ? getValues("serviceDto").map(s => ({
+                    serviceId: s.value,
+                    serviceName:s.label
+                })
+            ) : selectedService.map(s => ({
+                    serviceId: s.value,
+                    serviceName:s.label
+                })
+            )
         }, {
             onSuccess: () => {
                 reset();
@@ -160,19 +176,18 @@ const CreateClinicForm = ({clinicToEdit = {}, onCloseModal,forSettings,refreshCl
             label: spec.specializationName,
         }
     })
-
     return (
         <Form onSubmit={handleSubmit(onSubmit)} type={onCloseModal ? 'modal' : 'regular'}>
             {forSettings !== true && ( <>
-            <FormRow label="Clinic name" error={errors?.clinicName?.message}>
-                <Input type="text" disabled={isWorking}
-                       id="clinicName" {...register("clinicName", {required: "This field is required"})}/>
-            </FormRow>
+                <FormRow label="Clinic name" error={errors?.clinicName?.message}>
+                    <Input type="text" disabled={isWorking}
+                           id="clinicName" {...register("clinicName", {required: "This field is required"})}/>
+                </FormRow>
 
-            <FormRow label="Address" error={errors?.clinicName?.message}>
-                <Input type="text" disabled={isWorking}
-                       id="address" {...register("address", {required: "This field is required"})}/>
-            </FormRow>
+                <FormRow label="Address" error={errors?.clinicName?.message}>
+                    <Input type="text" disabled={isWorking}
+                           id="address" {...register("address", {required: "This field is required"})}/>
+                </FormRow>
             </>)}
             <FormRow label="Specializations">
                 <Select

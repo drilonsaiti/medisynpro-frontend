@@ -2,7 +2,7 @@ import styled from "styled-components";
 import Button from "../../ui/Button.jsx";
 import Heading from "../../ui/Heading.jsx";
 import Modal from "../../ui/Modal.jsx";
-import CreateAppointmentForm from "../appointment/CreateAppointmentForm.jsx";
+import CreateAppointmentForm from "../Appointment/CreateAppointmentForm.jsx";
 import React from "react";
 import {useNavigate} from "react-router-dom";
 
@@ -14,18 +14,18 @@ const Container = styled.div`
     align-items: center;
     background-color: var(--color-grey-0);;
     padding: 2rem;
-    
+
 `;
 
 const StyledBoxDoctors = styled.div`
     background-color: var(--color-grey-0);
-    border: ${props => (props.forUsers ? 'none' : '1px solid var(--color-grey-0)')};    
+    border: ${props => (props.forUsers ? 'none' : '1px solid var(--color-grey-0)')};
     border-radius: 7px;
     width: 80%;
     overflow: hidden;
     margin: auto;
     padding: 2rem;
-    
+
 `
 
 const ProfileCard = styled.div`
@@ -39,7 +39,7 @@ const ProfileCard = styled.div`
     border: 1px solid var(--color-brand-700);
     /*border-radius: 10px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1);*/
-    
+
     padding: 2rem 2rem;
     transition: transform 0.3s ease;
 
@@ -47,7 +47,7 @@ const ProfileCard = styled.div`
         background: linear-gradient(to left top, rgba(16, 65, 47, .05) 0% /*bottom-right color*/, var(--hover-doctor-color) 50% /*middle color*/, rgba(16, 65, 47, .1) 100% /*top-left color*/),
         linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)) /*"faked" black background make sure to add last or it will appear before the transparent/colored layer*/;
     }
-    
+
     /*&:hover{
         background:
                 linear-gradient(to left top, rgba(16, 65, 47, .05) 0%!*bottom-right color*!, rgba(255, 255, 255, 1) 50% !*middle color*!, rgba(16, 65, 47, .1) 100% !*top-left color*!),
@@ -75,13 +75,13 @@ const AvatarImg = styled.img`
 
 const Status = styled.div`
     position: absolute;
-    top: 27%;
+    top: 29%;
     right: 39%;
     width: 7px;
     height: 7px;
     border-radius: 50%;
-    border: 1px solid white;
-    transform: translate(-50%, -30%);
+    border: 1px solid var(--color-grey-0);
+    transform: translate(-50%, -20%);
     background-color: var(--color-brand-700);
 `;
 
@@ -112,13 +112,13 @@ const ClinicAppointmentBox = ({doctors, forUsers}) => {
                                     onClick={() => navigate(`/doctors/${doctor.doctorId}`)}
                                     style={{alignSelf: "self-end", marginTop: "1rem"}}>view profile</Button>
                             <Avatar>
-                                <AvatarImg src={doctor?.imageUrl !== "" ? doctor.imageUrl : "/default-user.jpg"}/>
+                                <AvatarImg src={doctor?.imageUrl ? doctor?.imageUrl : '/default-user.jpg'}/>
                             </Avatar>
                             <Status/>
                             <FlexGroup>
                                 <Heading type="h3">{doctor.doctorName}</Heading>
                                 <P style={{fontWeight: "bold"}}>{doctor.clinic.clinicName}</P>
-                                <P>{doctor.specialization.specializationName}</P>
+                                <P>{doctor?.specialization?.specializationName}</P>
 
                             </FlexGroup>
                             <Modal>

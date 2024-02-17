@@ -122,6 +122,7 @@ const AvatarImg = styled.img`
 const ClinicHeaderBox = ({clinic}) => {
     const {clinicId, clinicName: name, specializations, address, doctors} = clinic;
 
+    console.log(clinic);
     return (
         <StyledBox>
 

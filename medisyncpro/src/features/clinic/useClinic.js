@@ -72,3 +72,4 @@ export function useClinicServicesById(clinicId) {
 
     return {clinicServices, isLoading};
 }
+
