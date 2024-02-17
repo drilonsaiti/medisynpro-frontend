@@ -1,7 +1,5 @@
-import PatientHeaderBox from "../Patient/PatientHeaderBox.jsx";
 import Row from "../../ui/Row.jsx";
 import ReceptionistHeaderBox from "./ReceptionistHeaderBox.jsx";
-import {usePatientForProfile} from "../Patient/usePatient.js";
 import Spinner from "../../ui/Spinner.jsx";
 import {useReceptionistForProfile} from "./useReceptionist.js";
 
