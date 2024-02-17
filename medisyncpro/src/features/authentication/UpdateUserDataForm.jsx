@@ -129,7 +129,7 @@ function UpdateUserDataForm() {
         const gender = g.value === profileData?.gender?.toUpperCase() ? g : null;
         return {value:gender?.value,label:gender?.label};
     })
-    console.log("PROFILEDATA",profileData);
+    const isDisabled = ["clinic@clini.com", "doctor@doctor.com", "patient@patient.com", "receptionist@receptionist.com"].includes(profileData?.email);
     let forms;
     if (roles.includes("DOCTOR")) {
         forms = (
@@ -139,7 +139,7 @@ function UpdateUserDataForm() {
                     <Input
                         type='text'
                         value={education || profileData?.education}
-                        disabled={isUpdating}
+                        disabled={isUpdating || isDisabled}
                         onChange={(e) => setEducation(e.target.value)}
                         id='education'
                     />
@@ -150,6 +150,7 @@ function UpdateUserDataForm() {
                         closeMenuOnSelect={false}
                         components={animatedComponents}
                         isSearchable
+                        isDisabled={isDisabled}
                         options={optionsSpecializations}
                         closeOnSelect={false}
                         menuPortalTarget={document.body}
@@ -199,6 +200,7 @@ function UpdateUserDataForm() {
                         components={animatedComponents}
                         isSearchable
                         options={genders}
+                        isDisabled={isDisabled}
                         closeOnSelect={true}
                         menuPortalTarget={document.body}
                         onChange={(e) => setGender(e)}
@@ -239,7 +241,7 @@ function UpdateUserDataForm() {
                     <Input
                         type='text'
                         value={address || profileData?.address}
-                        disabled={isUpdating}
+                        disabled={isUpdating || isDisabled}
                         onChange={(e) => setAddress(e.target.value)}
                         id='address'
                     />
@@ -250,7 +252,7 @@ function UpdateUserDataForm() {
                     <Input
                         type='text'
                         value={contactNumber || profileData?.contactNumber}
-                        disabled={isUpdating}
+                        disabled={isUpdating || isDisabled}
                         onChange={(e) => setContactNumber(e.target.value)}
                         id='contactNumber'
                     />
@@ -261,7 +263,7 @@ function UpdateUserDataForm() {
                     <Input
                         type='date'
                         value={birthDay || profileData?.birthDay}
-                        disabled={isUpdating}
+                        disabled={isUpdating || isDisabled}
                         onChange={(e) => setBirthDay(e.target.value)}
                         id='birthDay'
                     />
@@ -276,7 +278,7 @@ function UpdateUserDataForm() {
             <Input
                 type='text'
                 value={address || profileData?.address}
-                disabled={isUpdating}
+                disabled={isUpdating || isDisabled}
                 onChange={(e) => setAddress(e.target.value)}
                 id='address'
             />
@@ -290,7 +292,7 @@ function UpdateUserDataForm() {
 
                         id='avatar'
                         accept='image/*'
-                        disabled={isUpdatingAvatar}
+                        disabled={isUpdatingAvatar || isDisabled}
                         onChange={handleFileChange}
                     />
                 </FormRow>
@@ -305,7 +307,7 @@ function UpdateUserDataForm() {
                     <Input
                         type='text'
                         value={fullName || profileData?.fullName}
-                        disabled={isUpdating}
+                        disabled={isUpdating || isDisabled}
                         onChange={(e) => setFullName(e.target.value)}
                         id='fullName'
                     />
