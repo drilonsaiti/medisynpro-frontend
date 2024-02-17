@@ -10,7 +10,7 @@ import makeAnimated from "react-select/animated";
 import {HiChevronDown, HiChevronRight} from "react-icons/hi2";
 import Row from "../../ui/Row.jsx";
 import styled from "styled-components";
-import {useDoctorsByClinicId} from "../Doctor/useDoctors.js";
+import {useDoctorsByClinicId} from "../doctor/useDoctors.js";
 
 const animatedComponents = makeAnimated();
 const Title = styled.div`
