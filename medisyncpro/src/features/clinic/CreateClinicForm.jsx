@@ -11,6 +11,7 @@ import makeAnimated from 'react-select/animated';
 import Spinner from "../../ui/Spinner.jsx";
 import {useClinicServicesById} from "./useClinic.js";
 import {useEffect, useState} from "react";
+import {useClinicServiceForClinic} from "../clinicServices/useClinicService.js";
 
 const animatedComponents = makeAnimated();
 
