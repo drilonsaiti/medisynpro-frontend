@@ -19,7 +19,6 @@ import Spinner from "../../ui/Spinner.jsx";
 import {useScheduleByDoctorId} from "../clinicSchedule/useClinicSchedule.js";
 import Heading from "../../ui/Heading.jsx";
 import {Roles} from "../../utils/services.js";
-import {useFindByEmailOrContactNumber} from "../patient/useFindByEmailOrContactNumber.js";
 
 const DatePickerWrapperStyles = createGlobalStyle`
     /*.date_picker{

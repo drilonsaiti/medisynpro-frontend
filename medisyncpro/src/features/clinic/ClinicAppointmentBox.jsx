@@ -2,7 +2,7 @@ import styled from "styled-components";
 import Button from "../../ui/Button.jsx";
 import Heading from "../../ui/Heading.jsx";
 import Modal from "../../ui/Modal.jsx";
-import CreateAppointmentForm from "../Appointment/CreateAppointmentForm.jsx";
+import CreateAppointmentForm from "../appointment/CreateAppointmentForm.jsx";
 import React from "react";
 import {useNavigate} from "react-router-dom";
 
