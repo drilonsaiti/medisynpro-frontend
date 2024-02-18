@@ -3,8 +3,7 @@ import Cookies from "universal-cookie";
 import {useGetRole} from "../services/useGetRole.js";
 import {useFindByEmailOrContactNumber} from "../features/patient/useFindByEmailOrContactNumber.js";
 
-export const BASE_URL = "http://localhost:9091/api";
-
+export const BASE_URL = "https://medisyncpro-backend.onrender.com/api";
 const cookies = new Cookies();
 export const HEADERS = {
     "content-type": "application/json",
