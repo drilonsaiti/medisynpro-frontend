@@ -73,8 +73,8 @@ const AppointmentForPatientRow = ({appointment}) => {
 
             {report !== null &&
                 <div style={{display: 'flex', gap: '3rem'}}>
-                    <ButtonIcon type="icon"><Link to={`/medicalReports/${report.reportId}`} target="_blank"><FaFilePdf/></Link></ButtonIcon>
-                    <ButtonIcon type="icon">
+                    <ButtonIcon ><Link to={`/medicalReports/${report.reportId}`} target="_blank"><FaFilePdf/></Link></ButtonIcon>
+                    <ButtonIcon >
                         <DownloadButton medicalReport={report} isDownload/>
 
                     </ButtonIcon>

@@ -12,6 +12,7 @@ export async function getClinics({page, specializations, service, byDate}) {
                 service: service,
                 byDate: byDate
             });
+        console.log(response.data)
         return response.data;
     } catch (e) {
         throw new Error(e);

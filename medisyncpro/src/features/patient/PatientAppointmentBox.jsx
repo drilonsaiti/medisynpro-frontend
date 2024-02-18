@@ -197,9 +197,9 @@ const PatientAppointmentBox = ({patientId}) => {
 
                                     <Icons>
                                         {app?.report !== null &&
-                                            <><ButtonIcon type="icon"><Link to={`/medicalReports/${app.reportId}`}
+                                            <><ButtonIcon><Link to={`/medicalReports/${app.reportId}`}
                                                                             target="_blank"><FaFilePdf/></Link></ButtonIcon>
-                                                <ButtonIcon type="icon">
+                                                <ButtonIcon >
                                                     <DownloadButton medicalReport={app.report} isDownload/>
 
                                                 </ButtonIcon>

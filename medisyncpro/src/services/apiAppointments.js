@@ -9,6 +9,7 @@ export async function getAppointments({page, nameOrEmail, types}) {
             nameOrEmail: nameOrEmail,
             types: types
         });
+        console.log(response.data)
         return response.data;
     } catch (e) {
         throw new Error(e);
@@ -21,6 +22,7 @@ export async function getMyAppointment({page}) {
         const response = await apiRequest('GET', 'appointments/myAppointment', null, {
             page: page !== 0 ? page : 1,
         });
+        console.log(response.data)
         return response.data;
     } catch (e) {
         throw new Error(e);
